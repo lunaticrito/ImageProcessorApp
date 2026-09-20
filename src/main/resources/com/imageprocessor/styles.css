@@ -1,0 +1,186 @@
+.root {
+    -fx-background-color: #1e1e2e;
+    -fx-base: #1e1e2e;
+    -fx-font-family: "Segoe UI", "System";
+    -fx-text-background-color: #cdd6f4;
+    -fx-text-fill: #cdd6f4;
+}
+
+.menu-bar, .menu, .menu-item {
+    -fx-background-color: #313244;
+}
+.menu-bar .label, .menu-item .label {
+    -fx-text-fill: #cdd6f4;
+}
+.menu-item:hover, .menu-item:focused {
+    -fx-background-color: #89b4fa;
+}
+.menu-item:hover .label, .menu-item:focused .label {
+    -fx-text-fill: #181825;
+}
+
+.tool-bar {
+    -fx-background-color: #45475a;
+}
+
+.button {
+    -fx-background-color: #313244;
+    -fx-text-fill: #cdd6f4;
+    -fx-background-radius: 4px;
+    -fx-border-radius: 4px;
+    -fx-padding: 5 10 5 10;
+}
+.button:hover {
+    -fx-background-color: #45475a;
+    -fx-effect: innershadow(gaussian, #89b4fa, 5, 0, 0, 0);
+}
+.button:pressed {
+    -fx-background-color: #181825;
+}
+.button.primary {
+    -fx-background-color: #89b4fa;
+    -fx-text-fill: #181825;
+}
+.button.danger {
+    -fx-background-color: #f38ba8;
+}
+
+.slider .track {
+    -fx-background-color: #45475a;
+    -fx-background-radius: 5;
+}
+.slider .thumb {
+    -fx-background-color: #89b4fa;
+    -fx-background-radius: 10;
+}
+
+.check-box {
+    -fx-text-fill: #cdd6f4;
+}
+.check-box .box {
+    -fx-background-color: #313244;
+    -fx-border-color: #45475a;
+    -fx-border-radius: 3;
+    -fx-background-radius: 3;
+}
+.check-box:selected .mark {
+    -fx-background-color: #89b4fa;
+}
+
+.label {
+    -fx-text-fill: #cdd6f4;
+}
+
+.titled-pane > .title {
+    -fx-background-color: #313244;
+}
+.titled-pane > .title > .text {
+    -fx-fill: #cdd6f4;
+}
+.titled-pane > *.content {
+    -fx-background-color: #1e1e2e;
+}
+
+.list-view {
+    -fx-background-color: #1e1e2e;
+}
+.list-cell {
+    -fx-background-color: #1e1e2e;
+    -fx-text-fill: #cdd6f4;
+}
+.list-cell:filled:selected {
+    -fx-background-color: #89b4fa;
+    -fx-text-fill: #181825;
+}
+.list-cell:filled:hover:!selected {
+    -fx-background-color: #313244;
+}
+
+.scroll-pane {
+    -fx-background-color: #1e1e2e;
+}
+.scroll-pane > .viewport {
+    -fx-background-color: #1e1e2e;
+}
+.scroll-bar {
+    -fx-background-color: transparent;
+}
+.scroll-bar .track {
+    -fx-background-color: #181825;
+    -fx-border-color: transparent;
+    -fx-pref-width: 10;
+    -fx-pref-height: 10;
+}
+.scroll-bar .thumb {
+    -fx-background-color: #45475a;
+    -fx-background-radius: 5;
+}
+
+.text-field, .combo-box, .combo-box .list-cell {
+    -fx-background-color: #313244;
+    -fx-text-fill: #cdd6f4;
+    -fx-prompt-text-fill: #a6adc8;
+}
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #89b4fa;
+    -fx-border-radius: 3;
+}
+
+.progress-bar .track {
+    -fx-background-color: #45475a;
+}
+.progress-bar > .bar {
+    -fx-background-color: #89b4fa;
+    -fx-background-radius: 5;
+}
+
+.progress-indicator .indicator {
+    -fx-progress-color: #89b4fa;
+}
+
+.separator *.line {
+    -fx-border-color: #45475a;
+    -fx-border-style: solid;
+    -fx-border-width: 1;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #181825;
+}
+.tab-pane .tab {
+    -fx-background-color: #313244;
+}
+.tab-pane .tab:selected {
+    -fx-background-color: #45475a;
+}
+.tab .tab-label {
+    -fx-text-fill: #cdd6f4;
+}
+
+.split-pane {
+    -fx-background-color: #1e1e2e;
+}
+.split-pane > .split-pane-divider {
+    -fx-background-color: #45475a;
+    -fx-pref-width: 3px;
+    -fx-padding: 0 1 0 1;
+}
+
+.tooltip {
+    -fx-background-color: #313244;
+    -fx-text-fill: #cdd6f4;
+}
+
+#statusBar {
+    -fx-background-color: #181825;
+    -fx-font-size: 12px;
+}
+
+#galleryList {
+    -fx-background-color: #1e1e2e;
+}
+
+.zoom-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: #a6adc8;
+}

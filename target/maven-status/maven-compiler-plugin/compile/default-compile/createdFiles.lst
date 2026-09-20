@@ -1,0 +1,15 @@
+com\imageprocessor\model\FilterPreset.class
+com\imageprocessor\util\ImageUtils.class
+com\imageprocessor\Launcher.class
+com\imageprocessor\controller\MainController$1.class
+com\imageprocessor\util\DialogUtils.class
+com\imageprocessor\service\ImageOperations.class
+com\imageprocessor\service\ImageProcessingService$1.class
+com\imageprocessor\service\ImageProcessingService$2.class
+com\imageprocessor\App.class
+com\imageprocessor\controller\MainController.class
+com\imageprocessor\util\JsonUtil.class
+com\imageprocessor\database\DatabaseManager.class
+com\imageprocessor\model\ImageModel.class
+com\imageprocessor\service\ImageProcessingService.class
+com\imageprocessor\model\EditLog.class

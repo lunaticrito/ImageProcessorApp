@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="com.imageprocessor.controller.MainController" stylesheets="@styles.css">
+
+    <top>
+        <VBox>
+            <MenuBar>
+                <Menu text="File">
+                    <MenuItem text="Open Image" onAction="#onOpenImage"/>
+                    <MenuItem text="Open Folder" onAction="#onOpenFolder"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Save" onAction="#onSaveImage"/>
+                    <MenuItem text="Save As..." onAction="#onSaveImageAs"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Exit" onAction="#onExit"/>
+                </Menu>
+                <Menu text="Edit">
+                    <MenuItem text="Undo" onAction="#onUndo"/>
+                    <MenuItem text="Redo" onAction="#onRedo"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Reset Filters" onAction="#onResetFilters"/>
+                </Menu>
+                <Menu text="Presets">
+                    <MenuItem text="Save Preset" onAction="#onSavePreset"/>
+                    <MenuItem text="Delete Preset" onAction="#onDeletePreset"/>
+                    <SeparatorMenuItem/>
+                    <MenuItem text="Export to JSON" onAction="#onExportPreset"/>
+                    <MenuItem text="Import from JSON" onAction="#onImportPreset"/>
+                </Menu>
+                <Menu text="Database">
+                    <MenuItem text="View Edit History" onAction="#onViewHistory"/>
+                    <MenuItem text="Clear History" onAction="#onClearHistory"/>
+                </Menu>
+                <Menu text="Help">
+                    <MenuItem text="About" onAction="#onAbout"/>
+                </Menu>
+            </MenuBar>
+            <ToolBar>
+                <Button text="Open" onAction="#onOpenImage"/>
+                <Button text="Save" onAction="#onSaveImage"/>
+                <Separator/>
+                <Button text="Undo" onAction="#onUndo"/>
+                <Button text="Redo" onAction="#onRedo"/>
+                <Separator/>
+                <Button text="Zoom In" onAction="#onZoomIn"/>
+                <Button text="Zoom Out" onAction="#onZoomOut"/>
+                <Button text="Fit" onAction="#onFitToWindow"/>
+                <Separator/>
+                <Button text="Delete Image" onAction="#onDeleteImage" styleClass="danger"/>
+            </ToolBar>
+        </VBox>
+    </top>
+
+    <center>
+        <SplitPane dividerPositions="0.18, 0.75" orientation="HORIZONTAL">
+            
+            <VBox>
+                <Label text="Gallery" style="-fx-font-weight: bold; -fx-padding: 5;"/>
+                <ListView fx:id="galleryListView" VBox.vgrow="ALWAYS"/>
+            </VBox>
+            
+            <StackPane>
+                <ScrollPane fx:id="scrollPane" fitToWidth="true" fitToHeight="true" pannable="true">
+                    <StackPane fx:id="imageContainer">
+                        <ImageView fx:id="imageView" preserveRatio="true" smooth="true"/>
+                        <Rectangle fx:id="cropOverlay" fill="transparent" stroke="#89b4fa" strokeWidth="2" 
+                                   style="-fx-stroke-dash-array: 5 5;" visible="false" mouseTransparent="true"/>
+                    </StackPane>
+                </ScrollPane>
+            </StackPane>
+            
+            <ScrollPane fitToWidth="true">
+                <VBox spacing="8">
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+                    <TitledPane text="Transformations" expanded="true">
+                        <VBox spacing="8">
+                            <padding>
+                                <Insets top="8" right="8" bottom="8" left="8"/>
+                            </padding>
+                            <HBox spacing="5">
+                                <Button text="↺ 90°" onAction="#onRotateLeft"/>
+                                <Button text="↻ 90°" onAction="#onRotateRight"/>
+                            </HBox>
+                            <HBox spacing="5" alignment="CENTER_LEFT">
+                                <Label text="Rotation:"/>
+                                <Slider fx:id="rotationSlider" min="0" max="360" value="0"/>
+                                <Label fx:id="rotationLabel" text="0°"/>
+                            </HBox>
+                            <Button text="Apply Rotation" onAction="#onApplyRotation"/>
+                            <HBox spacing="5">
+                                <Button text="Flip H" onAction="#onFlipHorizontal"/>
+                                <Button text="Flip V" onAction="#onFlipVertical"/>
+                            </HBox>
+                            <HBox spacing="5">
+                                <Button text="Crop" onAction="#onCrop"/>
+                                <Button text="Resize" onAction="#onResize"/>
+                            </HBox>
+                        </VBox>
+                    </TitledPane>
+                    
+                    <TitledPane text="Color Adjustments" expanded="true">
+                        <VBox spacing="6">
+                            <padding>
+                                <Insets top="8" right="8" bottom="8" left="8"/>
+                            </padding>
+                            <HBox alignment="CENTER_LEFT" spacing="5">
+                                <Label text="Brightness" prefWidth="80"/>
+                                <Slider fx:id="brightnessSlider" HBox.hgrow="ALWAYS" min="-100" max="100" value="0"/>
+                                <Label fx:id="brightnessLabel" text="0" prefWidth="40"/>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="5">
+                                <Label text="Contrast" prefWidth="80"/>
+                                <Slider fx:id="contrastSlider" HBox.hgrow="ALWAYS" min="-100" max="100" value="0"/>
+                                <Label fx:id="contrastLabel" text="0" prefWidth="40"/>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="5">
+                                <Label text="Saturation" prefWidth="80"/>
+                                <Slider fx:id="saturationSlider" HBox.hgrow="ALWAYS" min="-100" max="100" value="0"/>
+                                <Label fx:id="saturationLabel" text="0" prefWidth="40"/>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="5">
+                                <Label text="Hue" prefWidth="80"/>
+                                <Slider fx:id="hueSlider" HBox.hgrow="ALWAYS" min="-180" max="180" value="0"/>
+                                <Label fx:id="hueLabel" text="0" prefWidth="40"/>
+                            </HBox>
+                        </VBox>
+                    </TitledPane>
+                    
+                    <TitledPane text="Filters" expanded="true">
+                        <VBox spacing="6">
+                            <padding>
+                                <Insets top="8" right="8" bottom="8" left="8"/>
+                            </padding>
+                            <HBox alignment="CENTER_LEFT" spacing="5">
+                                <Label text="Blur" prefWidth="80"/>
+                                <Slider fx:id="blurSlider" HBox.hgrow="ALWAYS" min="0" max="10" value="0"/>
+                                <Label fx:id="blurLabel" text="0.0" prefWidth="40"/>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" spacing="5">
+                                <Label text="Sharpen" prefWidth="80"/>
+                                <Slider fx:id="sharpenSlider" HBox.hgrow="ALWAYS" min="0" max="5" value="0"/>
+                                <Label fx:id="sharpenLabel" text="0.0" prefWidth="40"/>
+                            </HBox>
+                            <HBox spacing="10">
+                                <CheckBox fx:id="grayscaleCheck" text="Grayscale"/>
+                                <CheckBox fx:id="sepiaCheck" text="Sepia"/>
+                            </HBox>
+                            <HBox spacing="10">
+                                <CheckBox fx:id="invertCheck" text="Invert"/>
+                                <CheckBox fx:id="edgeDetectCheck" text="Edge Detect"/>
+                            </HBox>
+                        </VBox>
+                    </TitledPane>
+                    
+                    <TitledPane text="Presets" expanded="false">
+                        <VBox spacing="8">
+                            <padding>
+                                <Insets top="8" right="8" bottom="8" left="8"/>
+                            </padding>
+                            <ComboBox fx:id="presetCombo" maxWidth="Infinity" promptText="Select Preset..."/>
+                            <HBox spacing="5">
+                                <Button text="Save" onAction="#onSavePreset"/>
+                                <Button text="Delete" onAction="#onDeletePreset"/>
+                            </HBox>
+                            <HBox spacing="5">
+                                <Button text="Export JSON" onAction="#onExportPreset"/>
+                                <Button text="Import JSON" onAction="#onImportPreset"/>
+                            </HBox>
+                        </VBox>
+                    </TitledPane>
+                </VBox>
+            </ScrollPane>
+        </SplitPane>
+    </center>
+
+    <bottom>
+        <HBox fx:id="statusBar" spacing="10" alignment="CENTER_LEFT">
+            <padding>
+                <Insets top="5" right="5" bottom="5" left="5"/>
+            </padding>
+            <Label fx:id="imageInfoLabel" text="No image loaded"/>
+            <Separator orientation="VERTICAL"/>
+            <Label fx:id="zoomLabel" text="100%" styleClass="zoom-label"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <ProgressBar fx:id="progressBar" prefWidth="150" visible="false"/>
+            <ProgressIndicator fx:id="progressIndicator" prefWidth="20" prefHeight="20" visible="false"/>
+            <Label fx:id="statusLabel" text="Ready"/>
+        </HBox>
+    </bottom>
+    
+</BorderPane>
