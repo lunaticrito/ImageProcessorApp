@@ -1,14 +1,10 @@
-\# Image Processor App
+# Image Processor App
+
+A Java desktop application for loading, processing, and managing digital images through a graphical user interface. The project is developed using Java, JavaFX, Maven, and SQLite, with a focus on applying Java programming concepts such as object-oriented programming, JavaFX GUI, multithreading, and database CRUD operations.
 
 
 
-A Java desktop application for loading, processing, and managing digital images through a graphical user interface. The project is developed using Java, JavaFX, Maven, and SQLite, with a focus on applying Java programming concepts such as object-oriented programming, multithreading, file handling, and database CRUD operations.
-
-
-
-\## Features
-
-
+## Features
 
 \- Load images from the local system
 
@@ -29,62 +25,54 @@ A Java desktop application for loading, processing, and managing digital images 
 \- View processing history through the application interface
 
 
-
-\## Technologies Used
-
+## Technologies Used
 
 
-\- \*\*Java\*\*
+- \*\*Java\*\*
 
-\- \*\*JavaFX\*\*
+- \*\*JavaFX\*\*
 
-\- \*\*Maven\*\*
+- \*\*Maven\*\*
 
-\- \*\*SQLite\*\*
+- \*\*SQLite\*\*
 
-\- \*\*JDBC\*\*
+- \*\*JDBC\*\*
 
-\- \*\*Git \& GitHub\*\*
+- \*\*Git \& GitHub\*\*
 
 
 
-\## Java Concepts Demonstrated
-
-
+## Java Concepts Demonstrated
 
 This project demonstrates several core Java concepts:
 
 
+- Object-Oriented Programming
 
-\- Object-Oriented Programming
+- Classes and Objects
 
-\- Classes and Objects
+- Encapsulation
 
-\- Encapsulation
+- Inheritance
 
-\- Inheritance
+- Polymorphism
 
-\- Polymorphism
+- Abstraction
 
-\- Abstraction
+- Interfaces
 
-\- Interfaces
+- Exception Handling
 
-\- Exception Handling
+- File Handling
 
-\- File Handling
+- Multithreading and Concurrency
 
-\- Multithreading and Concurrency
+- Collections
 
-\- Collections
-
-\- JDBC and Database Connectivity
-
+- JDBC and Database Connectivity
 
 
-\## Project Structure
-
-
+## Project Structure
 
 ```text
 
